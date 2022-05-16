@@ -1,5 +1,6 @@
 import { snake } from "./modules/snake.module.js";
 import { changeDirection } from "./functions/changeDirection.js";
+import { createApple } from "./functions/createApple.js";
 
 const idOfSnake = document.getElementById("snake-cubes");
 export const snakeCoordinates = [
@@ -15,10 +16,12 @@ export const snakeCoordinates = [
 
 export const initialSnake = new snake(idOfSnake, snakeCoordinates);
 initialSnake.render();
-
-
-
+// moving snake
 changeDirection();
+
+// creating food
+createApple();
+
 
 // checkApple{
 //     let apple= document.getElementById('apple');
