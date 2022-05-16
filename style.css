@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+
+body{
+    background-color: oldlace;
+}
+.title{
+    margin: 10px;
+}
+.title h1{
+    text-align: center;
+}
+.game-block{
+    width: 100%;
+    height: 500px;
+}
+.game_header{
+    width: 100%;
+    height: 50px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+.game_moving-area{
+    box-sizing: content-box;
+    width: 960px;
+    height: 450px;
+    border: 2px solid black;
+    position: relative;
+}
+.cube{
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid black; */
+    background-color: blueviolet;
+    /* box-shadow: 1px 1px 3px black; */
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.snake :first-child{
+    background-color: rgb(89, 19, 150);
+}
