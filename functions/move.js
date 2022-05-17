@@ -1,7 +1,16 @@
-import { snakeCoordinates } from "../index.js";
+import { snakeCoordinates, gameOver } from "../index.js";
 import { MOVING_AREA_WIDTH, MOVING_AREA_HEIGHT, CUBE_SIDE } from "../config/config.js";
 
 export const move = (snakeHead_left, snakeHead_top) => {
+
+  for(let i=1; i< snakeCoordinates.length; i++){
+    if(snakeCoordinates[0].left + snakeHead_left === snakeCoordinates[i].left && snakeCoordinates[0].top + snakeHead_top === snakeCoordinates[i].top){
+      gameOver();
+      return;
+    }
+  }
+  
+
   for (let i = snakeCoordinates.length - 1; i > 0; i--) {
     snakeCoordinates[i].left = snakeCoordinates[i - 1].left;
     snakeCoordinates[i].top = snakeCoordinates[i - 1].top;
