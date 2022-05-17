@@ -1,69 +1,104 @@
 import { snake } from "./modules/snake.module.js";
 import { changeDirection } from "./functions/changeDirection.js";
 import { createApple } from "./functions/createApple.js";
+import { checkApple } from "./functions/checkApple.js";
 
 const idOfSnake = document.getElementById("snake-cubes");
-export const snakeCoordinates = [
-  {
-    left: 30,
-    top: 0,
-  },
+const userScoreContainer = document.getElementById("user-score_num");
+const bestScoreContainer = document.getElementById("best-score_num");
+
+let bestScore = 0;
+let userScore = 0;
+const updateUserScore = () => {
+  userScoreContainer.innerText = userScore;
+};
+const updateBestScore = () => {
+  bestScoreContainer.innerText = bestScore;
+};
+// updateUserScore();
+
+export let snakeCoordinates = [
   {
     left: 0,
     top: 0,
   },
 ];
 
-export const initialSnake = new snake(idOfSnake, snakeCoordinates);
-initialSnake.render();
-// moving snake
+export let initialSnake = new snake(idOfSnake, snakeCoordinates);
+// initialSnake.render();
+// // moving snake
 changeDirection();
 
 // creating food
-createApple();
+export let foodCoordinates = createApple();
 
+// check apple is in the mouth of snake or not
+// checkApple();
 
-// checkApple{
-//     let apple= document.getElementById('apple');
-//     let head= document.getElementById('head');
+export const eatApple = () => {
+  // create Apple
+  foodCoordinates = createApple();
+  // update Score
+  userScore++;
+  updateUserScore();
+  // add New Segment to increase snake size
+  addNewSegment();
+};
 
-//     if(head.offsetLeft===apple.offsetLeft && head.offsetTop==apple.offsetTop){
-//         // removeApple
-//         apple.remove();
+const addNewSegment = () => {
+  snakeCoordinates.push({
+    left: 0,
+    top: 0,
+  });
+};
 
-//         eatApple()
-//     }
-// }
+export const gameOver = () => {
+  const finalScoreContainer = document.getElementById("final-score_num");
+  const darkBackground = document.querySelector(".dark-background");
+  const gameOverContainer = document.querySelector(".game-over");
+  const restartBtn = document.getElementById("restart");
 
-// eatApple(){
-//     // createApple
-//     // updateScore
+  finalScoreContainer.innerText = userScore;
+  darkBackground.style.display = "block";
+  gameOverContainer.style.display = "flex";
 
-//     // addNewSegment
-// }
+  restartBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (userScore > bestScore) {
+      bestScore = userScore;
+    }
+    startGame();
 
-// addNewSegment(){
-//     let newSeg=document.createElement('div');
-//     newSeg.classList.add('sqiare');
+    darkBackground.style.display = "none";
+    gameOverContainer.style.display = "none";
+  });
+};
 
-//     // need to define last element coordinate
+const startGame = () => {
+  userScore = 0;
+  updateUserScore();
+  updateBestScore();
+  snakeCoordinates = [
+    {
+      left: 0,
+      top: 0,
+    },
+  ];
+  initialSnake = new snake(idOfSnake, snakeCoordinates);
+  initialSnake.render();
+  // moving snake
+  foodCoordinates = createApple();
+  checkApple();
 
-//     newSeg.style.left='px'
-//     newSeg.style.top='px'
+  // let snake = new snake();
 
-//     let container = document.getElementById('');
+  // move
+  // change Direction
+  // check apple
 
-// }
-
-// game(){
-// let snake = new snake();
-
-// // move
-// // change Direction
-// // check apple
-
-// // die
-// };
+  // die
+};
+startGame();
 
 // createSnake
 // createApple
