@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <script type="module" src="./index.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="title">
-                <h1>Snake game</h1> 
-            </div>
-           
+      <div class="container">
+        <div class="title">
+          <h1>Snake Game</h1>
         </div>
-        
+      </div>
     </header>
     <main>
-        <div class="container">
-            <div class="game-block">
-                <div class="game_header">
-                    <div class="btns">
-                        <div class="start-stop_btn">Start Game</div>
-                    </div>
-                    <div class="user-score">Your Score: </div>
-                    <div class="best-score">Best Score: </div>
-                </div>
-                <div class="game_moving-area">
-                    <div class="snake" id="snake-cubes">
-                        <!-- <div class="cube" style="left: 30px; top: 30px;"></div> -->
-                    </div>
-                    <div class="food" id="food">
-                        <div class="apple" id="apple"></div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="game-block">
+          <div class="game_header">
+            <div class="btns">
+              <div class="start-stop_btn">Start Game</div>
             </div>
+            <div class="user-score">
+              Your Score: <span id="user-score_num"></span>
+            </div>
+            <div class="best-score">
+              Best Score: <span id="best-score_num"></span>
+            </div>
+          </div>
+          <div class="game_moving-area">
+            <div class="snake" id="snake-cubes">
+              <!-- <div class="cube" style="left: 30px; top: 30px;"></div> -->
+            </div>
+            <div class="food" id="food">
+              <div class="apple" id="apple"></div>
+            </div>
+          </div>
+          <div class="game-over">
+            <h2>Game Over!</h2>
+            <div class="final-score">
+              Your Score is: <span id="final-score_num"></span>
+            </div>
+            <button id="restart">Restart Game</button>
+          </div>
         </div>
+        <div class="dark-background"></div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
