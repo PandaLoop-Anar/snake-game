@@ -1,6 +1,7 @@
 import { initialSnake } from "../index.js";
 import { move } from "./move.js";
 import { CUBE_SIDE } from "../config/config.js";
+import { checkApple } from "./checkApple.js";
 
 export const changeDirection = () => {
   document.addEventListener("keydown", (e) => {
@@ -20,6 +21,9 @@ export const changeDirection = () => {
       // down
       move(0, CUBE_SIDE);
     }
+    // render snake
     initialSnake.render();
+    // check apple
+    checkApple();
   });
 };
