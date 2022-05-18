@@ -1,29 +1,47 @@
-import { initialSnake } from "../index.js";
+import { initialSnake, stopFunction } from "../index.js";
 import { move } from "./move.js";
-import { CUBE_SIDE } from "../config/config.js";
+import { CUBE_SIDE, SNAKE_SPEED } from "../config/config.js";
 import { checkApple } from "./checkApple.js";
 
+export let intervalId;
+  let leftDistance = CUBE_SIDE;
+  let topDistance = 0;
 export const changeDirection = () => {
+
   document.addEventListener("keydown", (e) => {
     if (e.keyCode === 37) {
       // left
-      move(-CUBE_SIDE, 0);
+      leftDistance = -CUBE_SIDE;
+      topDistance = 0;
     }
     if (e.keyCode === 38) {
       // up
-      move(0, -CUBE_SIDE);
+      leftDistance = 0;
+      topDistance = -CUBE_SIDE;
     }
     if (e.keyCode === 39) {
       // right
-      move(CUBE_SIDE, 0);
+      leftDistance = CUBE_SIDE;
+      topDistance = 0;
     }
     if (e.keyCode === 40) {
       // down
-      move(0, CUBE_SIDE);
+      leftDistance = 0;
+      topDistance = CUBE_SIDE;
     }
-    // render snake
-    initialSnake.render();
-    // check apple
-    checkApple();
+
   });
+  intervalId = setInterval(
+    () => {
+      move(leftDistance, topDistance);
+      // render snake
+      initialSnake.render();
+      // check apple
+      checkApple();
+    },
+    SNAKE_SPEED,
+    leftDistance,
+    topDistance
+  );
+  stopFunction(intervalId);
 };
