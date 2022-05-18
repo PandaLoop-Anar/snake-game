@@ -30,6 +30,19 @@ body{
     justify-content: space-between;
     align-items: center;  
 }
+.start-stop_btn{
+    width: 120px;
+    padding: 4px 0;
+    text-align: center;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: #24d324;
+    color: white;
+    box-shadow: 1px 1px 3px black;
+    cursor: pointer;
+}
+
 .game_moving-area{
     box-sizing: content-box;
     width: 960px;
