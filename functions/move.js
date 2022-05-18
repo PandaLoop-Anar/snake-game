@@ -9,7 +9,6 @@ export const move = (snakeHead_left, snakeHead_top) => {
       return;
     }
   }
-  
 
   for (let i = snakeCoordinates.length - 1; i > 0; i--) {
     snakeCoordinates[i].left = snakeCoordinates[i - 1].left;
