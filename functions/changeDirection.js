@@ -4,10 +4,9 @@ import { CUBE_SIDE, SNAKE_SPEED } from "../config/config.js";
 import { checkApple } from "./checkApple.js";
 
 export let intervalId;
-  let leftDistance = CUBE_SIDE;
-  let topDistance = 0;
+let leftDistance = CUBE_SIDE;
+let topDistance = 0;
 export const changeDirection = () => {
-
   document.addEventListener("keydown", (e) => {
     if (e.keyCode === 37) {
       // left
@@ -29,7 +28,6 @@ export const changeDirection = () => {
       leftDistance = 0;
       topDistance = CUBE_SIDE;
     }
-
   });
   intervalId = setInterval(
     () => {
