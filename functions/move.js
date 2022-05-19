@@ -29,3 +29,4 @@ export const move = (snakeHead_left, snakeHead_top) => {
     snakeCoordinates[0].top = MOVING_AREA_HEIGHT-CUBE_SIDE;
   }
 };
+
