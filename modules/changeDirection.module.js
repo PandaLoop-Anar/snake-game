@@ -31,6 +31,7 @@ export class changeDirectionClass {
         this._topDistance = CUBE_SIDE;
       }
     });
+    this.stopFunction();
     this._intervalId = setInterval(
       () => {
         move(this._leftDistance, this._topDistance);
