@@ -5,6 +5,7 @@ import { changeDirectionClass } from "./modules/changeDirection.module.js";
 import { scoreClass } from "./modules/score.module.js";
 import { eatAppleClass } from "./modules/eatApple.module.js";
 import { toggleBtnFunction } from "./functions/toggleBtn.js";
+import { changeAreaHeight, changeAreaWidth } from "./config/config.js";
 
 const idOfSnake = document.getElementById("snake-cubes");
 export const toggleBtn = document.getElementById("toggle-btn");
@@ -75,3 +76,26 @@ export const gameOver = () => {
     toggleBtn.click();
   });
 };
+
+// Responsive design
+// Tablet
+const mediaQueryTablet = window.matchMedia("(max-width: 768px)");
+function handleScreenSizeTablet(mediaQuery) {
+  if (mediaQuery.matches) {
+    document.body.style.backgroundColor = "yellow";
+    changeAreaWidth(510);
+  }
+}
+handleScreenSizeTablet(mediaQueryTablet);
+mediaQueryTablet.addListener(handleScreenSizeTablet);
+// Phone
+const mediaQueryPhone = window.matchMedia("(max-width: 425px)");
+function handleScreenSizePhone(mediaQuery) {
+  if (mediaQuery.matches) {
+    document.body.style.backgroundColor = "pink";
+    changeAreaWidth(300);
+    changeAreaHeight(420);
+  }
+}
+handleScreenSizePhone(mediaQueryPhone);
+mediaQueryPhone.addListener(handleScreenSizePhone);
