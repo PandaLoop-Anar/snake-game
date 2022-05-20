@@ -99,3 +99,4 @@ function handleScreenSizePhone(mediaQuery) {
 }
 handleScreenSizePhone(mediaQueryPhone);
 mediaQueryPhone.addListener(handleScreenSizePhone);
+
